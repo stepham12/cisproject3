@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Stephanie Amo
+// CIS 237
+// Due: 10/15/2019
+
 namespace cis237_assignment3
 {
     class UserInterface
@@ -75,7 +79,7 @@ namespace cis237_assignment3
 
         public string[] GetNewProtocolInformation()
         {
-            string material = this.GetStringField("Material");
+            string material = this.GetMaterialStringField("Material");
             string color = this.GetStringField("Color");
             string numberLanguages = this.GetIntegerField("Number of Languages");
 
@@ -84,7 +88,7 @@ namespace cis237_assignment3
 
         public string[] GetNewUtilityInformation()
         {
-            string material = this.GetStringField("Material");
+            string material = this.GetMaterialStringField("Material");
             string color = this.GetStringField("Color");
             string toolbox = this.GetBoolField("A Toolbox");
 
@@ -93,7 +97,7 @@ namespace cis237_assignment3
 
         public string[] GetNewJanitorInformation()
         {
-            string material = this.GetStringField("Material");
+            string material = this.GetMaterialStringField("Material");
             string color = this.GetStringField("Color");
             string toolbox = this.GetBoolField("A Toolbox");
             string trashCompactor = this.GetBoolField("A Trash Compactor");
@@ -104,13 +108,22 @@ namespace cis237_assignment3
 
         public string[] GetNewAstromechInformation()
         {
-            string material = this.GetStringField("Material");
+            string material = this.GetMaterialStringField("Material");
             string color = this.GetStringField("Color");
             string toolbox = this.GetBoolField("A Toolbox");
             string fireExtinguisher = this.GetBoolField("A Fire Extinguisher");
             string numberShips = this.GetIntegerField("Number of Ships");
 
             return new string[] { material, color, toolbox, fireExtinguisher, numberShips };
+        }
+
+        // Display All Items
+        public void DisplayAllItems(string allItemsOutput)
+        {
+            Console.WriteLine();
+            Console.WriteLine("List of Droids");
+            Console.WriteLine();
+            Console.WriteLine(allItemsOutput);
         }
 
         /*
@@ -237,6 +250,34 @@ namespace cis237_assignment3
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must provide a value.");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine();
+                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.Write("> ");
+                }
+            }
+            return value;
+        }
+
+        // Get a valid string field for material option from the console
+        private string GetMaterialStringField(string fieldName)
+        {
+            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("Options are: aluminum, steel, or copper.");
+            string value = null;
+            bool valid = false;
+            while (!valid)
+            {
+                value = Console.ReadLine();
+                if (value.ToLower() == "aluminum" || value.ToLower() == "steel" || value.ToLower() == "copper")
+                {
+                    valid = true;
+                    value = value.ToLower();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You must provide a valid option.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
                     Console.WriteLine("What is the new Item's {0}", fieldName);
