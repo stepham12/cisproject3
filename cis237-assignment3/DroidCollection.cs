@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Stephanie Amo
+// CIS 237
+// Due: 10/15/2019
+
 namespace cis237_assignment3
 {
     class DroidCollection
@@ -30,7 +34,7 @@ namespace cis237_assignment3
             droidLength++;
         }
 
-        // Add a new ProtocolDroid to the collection
+        // Add a new UtilityDroid to the collection
         public void AddNewItem(
             string material,
             string color,
@@ -38,8 +42,38 @@ namespace cis237_assignment3
             bool computerConnection,
             bool arm)
         {
-            // Add a new ProtocolDroid to the collection. Increase the Length variable.
+            // Add a new UtilityDroid to the collection. Increase the Length variable.
             droids[droidLength] = new UtilityDroid(material, color, toolbox, computerConnection, arm);
+            droidLength++;
+        }
+
+        // Add a new JanitorDroid to the collection
+        public void AddNewItem(
+            string material,
+            string color,
+            bool toolbox,
+            bool computerConnection,
+            bool arm,
+            bool trashCompactor,
+            bool vacuum)
+        {
+            // Add a new JanitorDroid to the collection. Increase the Length variable.
+            droids[droidLength] = new JanitorDroid(material, color, toolbox, computerConnection, arm, trashCompactor, vacuum);
+            droidLength++;
+        }
+
+        // Add a new AstromechDroid to the collection
+        public void AddNewItem(
+            string material,
+            string color,
+            bool toolbox,
+            bool computerConnection,
+            bool arm,
+            bool fireExtinguisher,
+            int numberShips)
+        {
+            // Add a new AstromechDroid to the collection. Increase the Length variable.
+            droids[droidLength] = new AstromechDroid(material, color, toolbox, computerConnection, arm, fireExtinguisher, numberShips);
             droidLength++;
         }
 
@@ -49,10 +83,10 @@ namespace cis237_assignment3
             // Declare a return string
             string returnString = "";
 
-            // Loop through all of the beverages
+            // Loop through all of the droids
             foreach (Droid droid in droids)
             {
-                // If the current beverage is not null, concat it to the return string
+                // If the current droid is not null, concat it to the return string
                 if (droid != null)
                 {
                     returnString += droid.ToString() + droid.GetFormattedCost() + Environment.NewLine;

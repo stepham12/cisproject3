@@ -77,6 +77,7 @@ namespace cis237_assignment3
 
         }
 
+        //Obtain new Protocol Droid information
         public string[] GetNewProtocolInformation()
         {
             string material = this.GetMaterialStringField("Material");
@@ -86,6 +87,7 @@ namespace cis237_assignment3
             return new string[] { material, color, numberLanguages };
         }
 
+        //Obtain new Utility Droid information
         public string[] GetNewUtilityInformation()
         {
             string material = this.GetMaterialStringField("Material");
@@ -97,6 +99,7 @@ namespace cis237_assignment3
             return new string[] { material, color, toolbox, computerConnection, arm };
         }
 
+        //Obtain new Janitor Droid information
         public string[] GetNewJanitorInformation()
         {
             string material = this.GetMaterialStringField("Material");
@@ -110,6 +113,7 @@ namespace cis237_assignment3
             return new string[] { material, color, toolbox, computerConnection, arm, trashCompactor, vacuum };
         }
 
+        //Obtain new Astromech Droid information
         public string[] GetNewAstromechInformation()
         {
             string material = this.GetMaterialStringField("Material");
@@ -242,7 +246,7 @@ namespace cis237_assignment3
         // Get a valid string field from the console
         private string GetStringField(string fieldName)
         {
-            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("What is the new Droid's {0}", fieldName);
             string value = null;
             bool valid = false;
             while (!valid)
@@ -258,7 +262,7 @@ namespace cis237_assignment3
                     Console.WriteLine("You must provide a value.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.WriteLine("What is the new Droid's {0}", fieldName);
                     Console.Write("> ");
                 }
             }
@@ -268,7 +272,7 @@ namespace cis237_assignment3
         // Get a valid string field for material option from the console
         private string GetMaterialStringField(string fieldName)
         {
-            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("What is the new Droid's {0}", fieldName);
             Console.WriteLine("Options are: aluminum, steel, or copper.");
             string value = null;
             bool valid = false;
@@ -286,7 +290,7 @@ namespace cis237_assignment3
                     Console.WriteLine("You must provide a valid option.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.WriteLine("What is the new Droid's {0}", fieldName);
                     Console.Write("> ");
                 }
             }
@@ -296,7 +300,7 @@ namespace cis237_assignment3
         // Get a valid integer field from the console
         private string GetIntegerField(string fieldName)
         {
-            Console.WriteLine("What is the new Item's {0}", fieldName);
+            Console.WriteLine("What is the new Droid's {0}", fieldName);
             decimal value = 0;
             bool valid = false;
             while (!valid)
@@ -309,10 +313,10 @@ namespace cis237_assignment3
                 catch (Exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("That is not a valid Decimal. Please enter a valid Decimal.");
+                    Console.WriteLine("That is not a valid Integer. Please enter a valid Integer.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("What is the new Item's {0}", fieldName);
+                    Console.WriteLine("What is the new Droid's {0}", fieldName);
                     Console.Write("> ");
                 }
             }
@@ -323,7 +327,7 @@ namespace cis237_assignment3
         // Get a valid bool field from the console
         private string GetBoolField(string fieldName)
         {
-            Console.WriteLine("Should the Item have {0} (y/n)", fieldName);
+            Console.WriteLine("Should the Droid have {0} (y/n)", fieldName);
             string input = null;
             string value;
             bool valid = false;
@@ -342,7 +346,7 @@ namespace cis237_assignment3
                     Console.WriteLine("That is not a valid Entry.");
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine();
-                    Console.WriteLine("Should the Item be {0} (y/n)", fieldName);
+                    Console.WriteLine("Should the Droid have {0} (y/n)", fieldName);
                     Console.Write("> ");
                 }
             }

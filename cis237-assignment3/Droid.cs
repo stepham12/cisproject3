@@ -42,32 +42,36 @@ namespace cis237_assignment3
         //Public Methods
         //******************************
 
+        //Return a formatted string containing the variables
         public override string ToString()
         {
             return material + ", " + color;
         }
 
+        //Calculate Total Cost, to be overridden in derived classes
         public abstract void CalculateTotalCost();
 
+        //Obtain Formatted Cost, to be overridden in derived classes
         public abstract string GetFormattedCost();
 
         //******************************
         //Protected Methods
         //******************************
 
+        //Calculate Base Cost based on material
         protected void CalculateBaseCost()
         {
             if(material == "aluminium")
             {
-                baseCost = 1000m;
+                baseCost = 2000m;
             }
             if (material == "steel")
             {
-                baseCost = 2000m;
+                baseCost = 4000m;
             }
             if (material == "copper")
             {
-                baseCost = 3000m;
+                baseCost = 6000m;
             }
         }
 

@@ -29,6 +29,7 @@ namespace cis237_assignment3
             // While loop for when choice is not 3(which is exit)
             while (choice != 3)
             {
+                //Deterine action based on user choice
                 switch (choice)
                 {
                     case 1:
@@ -59,10 +60,26 @@ namespace cis237_assignment3
                             case 3:
                                 //Add a Janitor Droid
                                 string[] newJanitorInformation = userInterface.GetNewJanitorInformation();
+                                droidCollection.AddNewItem(
+                                newJanitorInformation[0],
+                                newJanitorInformation[1],
+                                bool.Parse(newJanitorInformation[2]),
+                                bool.Parse(newJanitorInformation[3]),
+                                bool.Parse(newJanitorInformation[4]),
+                                bool.Parse(newJanitorInformation[5]),
+                                bool.Parse(newJanitorInformation[6]));
                                 break;
                             case 4:
                                 //Add an Astromech Droid
                                 string[] newAstromechInformation = userInterface.GetNewAstromechInformation();
+                                droidCollection.AddNewItem(
+                                newAstromechInformation[0],
+                                newAstromechInformation[1],
+                                bool.Parse(newAstromechInformation[2]),
+                                bool.Parse(newAstromechInformation[3]),
+                                bool.Parse(newAstromechInformation[4]),
+                                bool.Parse(newAstromechInformation[5]),
+                                int.Parse(newAstromechInformation[6]));
                                 break;
                         }
 

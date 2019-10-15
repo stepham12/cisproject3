@@ -10,73 +10,53 @@ using System.Threading.Tasks;
 
 namespace cis237_assignment3
 {
-    class UtilityDroid : Droid
+    class JanitorDroid : UtilityDroid
     {
         //*****************************
         //Variable / Backing fields
         //*****************************
 
-        protected const decimal COST_PER_ADDITIONAL_ITEM = 1000m;
-        protected bool toolbox;
-        protected bool computerConnection;
-        protected bool arm;
-
+        private bool trashCompactor;
+        private bool vacuum;
 
         //*****************************
         //Properties
         //*****************************
-        public bool Toolbox
+        public bool TrashCompactor
         {
-            get { return Toolbox; }
-            set { toolbox = value; }
+            get { return TrashCompactor; }
+            set { trashCompactor = value; }
         }
 
-        public bool ComputerConnection
+        public bool Vacuum
         {
-            get { return ComputerConnection; }
-            set { computerConnection = value; }
+            get { return Vacuum; }
+            set { vacuum = value; }
         }
 
-        public bool Arm
-        {
-            get { return Arm; }
-            set { arm = value; }
-        }
         //******************************
         //Public Methods
         //******************************
-
-        // Calculate TotalCost, then format and return it.
-        public override string GetFormattedCost()
-        {
-            CalculateTotalCost();
-            return TotalCost.ToString("C");
-        }
 
         //Return a formatted string containing the variables
         public override string ToString()
         {
             //Re-use the functionality from the parent class to get the color and material
-            return "Utility, " + base.ToString() + ", " + toolbox + ", " + computerConnection + ", " + arm + ", ";
+            return "Janitor - " + base.ToString() + trashCompactor + ", " + vacuum + ", ";
         }
 
         //Calculate the totalCost based on the number of languages, and add it to baseCost
         public override void CalculateTotalCost()
         {
-            CalculateBaseCost();
+            //Calculate base TotalCost for Utility Droid type
+            base.CalculateTotalCost();
 
-            totalCost = baseCost;
-
-            //If user selects yes, each item's cost is added to base cost
-            if(toolbox==true)
+            //Add cost of Janitor components
+            if (trashCompactor == true)
             {
                 totalCost += COST_PER_ADDITIONAL_ITEM;
             }
-            if(computerConnection==true)
-            {
-                totalCost += COST_PER_ADDITIONAL_ITEM;
-            }
-            if(arm==true)
+            if (vacuum == true)
             {
                 totalCost += COST_PER_ADDITIONAL_ITEM;
             }
@@ -87,14 +67,17 @@ namespace cis237_assignment3
         //Constructors
         //*****************************
 
-        public UtilityDroid
-            (string Material, string Color, bool Toolbox, bool ComputerConnection, bool Arm) : base(Material, Color)
+        public JanitorDroid
+            (string Material, string Color, bool Toolbox, bool ComputerConnection, bool Arm, bool TrashCompactor, bool Vacuum) 
+            : base(Material, Color, Toolbox, ComputerConnection, Arm)
         {
             this.material = Material;
             this.color = Color;
             this.toolbox = Toolbox;
             this.computerConnection = ComputerConnection;
             this.arm = Arm;
+            this.trashCompactor = TrashCompactor;
+            this.vacuum = Vacuum;
         }
     }
 }
