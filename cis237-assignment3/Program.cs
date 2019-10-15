@@ -26,7 +26,7 @@ namespace cis237_assignment3
             // Display the Menu and get the response. Store the response in the choice integer
             int choice = userInterface.DisplayMenuAndGetResponse();
 
-            // While the choice is not 3 exit program
+            // While loop for when choice is not 3(which is exit)
             while (choice != 3)
             {
                 switch (choice)
@@ -49,6 +49,12 @@ namespace cis237_assignment3
                             case 2:
                                 //Add a Utility Droid
                                 string[] newUtilityInformation = userInterface.GetNewUtilityInformation();
+                                droidCollection.AddNewItem(
+                                newUtilityInformation[0],
+                                newUtilityInformation[1],
+                                bool.Parse(newUtilityInformation[2]),
+                                bool.Parse(newUtilityInformation[3]),
+                                bool.Parse(newUtilityInformation[4]));
                                 break;
                             case 3:
                                 //Add a Janitor Droid

@@ -91,8 +91,10 @@ namespace cis237_assignment3
             string material = this.GetMaterialStringField("Material");
             string color = this.GetStringField("Color");
             string toolbox = this.GetBoolField("A Toolbox");
+            string computerConnection = this.GetBoolField("A Computer Connection");
+            string arm = this.GetBoolField("An Arm");
 
-            return new string[] { material, color, toolbox };
+            return new string[] { material, color, toolbox, computerConnection, arm };
         }
 
         public string[] GetNewJanitorInformation()
@@ -100,10 +102,12 @@ namespace cis237_assignment3
             string material = this.GetMaterialStringField("Material");
             string color = this.GetStringField("Color");
             string toolbox = this.GetBoolField("A Toolbox");
+            string computerConnection = this.GetBoolField("A Computer Connection");
+            string arm = this.GetBoolField("An Arm");
             string trashCompactor = this.GetBoolField("A Trash Compactor");
             string vacuum = this.GetBoolField("A Vacuum");
 
-            return new string[] { material, color, toolbox, trashCompactor, vacuum };
+            return new string[] { material, color, toolbox, computerConnection, arm, trashCompactor, vacuum };
         }
 
         public string[] GetNewAstromechInformation()
@@ -111,10 +115,12 @@ namespace cis237_assignment3
             string material = this.GetMaterialStringField("Material");
             string color = this.GetStringField("Color");
             string toolbox = this.GetBoolField("A Toolbox");
+            string computerConnection = this.GetBoolField("A Computer Connection");
+            string arm = this.GetBoolField("An Arm");
             string fireExtinguisher = this.GetBoolField("A Fire Extinguisher");
             string numberShips = this.GetIntegerField("Number of Ships");
 
-            return new string[] { material, color, toolbox, fireExtinguisher, numberShips };
+            return new string[] { material, color, toolbox, computerConnection, arm, fireExtinguisher, numberShips };
         }
 
         // Display All Items
@@ -317,17 +323,18 @@ namespace cis237_assignment3
         // Get a valid bool field from the console
         private string GetBoolField(string fieldName)
         {
-            Console.WriteLine("Should the Item be {0} (y/n)", fieldName);
+            Console.WriteLine("Should the Item have {0} (y/n)", fieldName);
             string input = null;
-            bool value = false;
+            string value;
             bool valid = false;
+
+            //Obtain valid option from user
             while (!valid)
             {
                 input = Console.ReadLine();
                 if (input.ToLower() == "y" || input.ToLower() == "n")
                 {
                     valid = true;
-                    value = (input.ToLower() == "y");
                 }
                 else
                 {
@@ -339,7 +346,17 @@ namespace cis237_assignment3
                     Console.Write("> ");
                 }
             }
-            return input;
+
+            if (input.ToLower() == "y")
+            {
+                value = "True";
+            }
+            else
+            {
+                value = "False";
+            }
+
+            return value;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace cis237_assignment3
             this.droidLength = 0;
         }
 
-        // Add a new item to the collection
+        // Add a new ProtocolDroid to the collection
         public void AddNewItem(
             string material,
             string color,
@@ -27,6 +27,19 @@ namespace cis237_assignment3
         {
             // Add a new ProtocolDroid to the collection. Increase the Length variable.
             droids[droidLength] = new ProtocolDroid(material, color, numberLanguages);
+            droidLength++;
+        }
+
+        // Add a new ProtocolDroid to the collection
+        public void AddNewItem(
+            string material,
+            string color,
+            bool toolbox,
+            bool computerConnection,
+            bool arm)
+        {
+            // Add a new ProtocolDroid to the collection. Increase the Length variable.
+            droids[droidLength] = new UtilityDroid(material, color, toolbox, computerConnection, arm);
             droidLength++;
         }
 
