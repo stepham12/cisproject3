@@ -2,7 +2,7 @@
 
 ## Due: 10-15-2019
 
-## Author
+## Author: Stephanie Amo
 
 
 
@@ -130,7 +130,8 @@ It may be beneficial for you to create extra methods within the droid sub classe
 | **Total**                  | **100**|
 
 ## Outside Resources Used
-
+None, just used in class assignment and assignment #1. 
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
+N/A
